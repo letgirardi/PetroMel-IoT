@@ -1,0 +1,338 @@
+[
+    {
+        "id": "b88c9a5723b598e7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e406c3a4e0799b8b",
+        "type": "mqtt in",
+        "z": "b88c9a5723b598e7",
+        "name": "Temperatura",
+        "topic": "mel_temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "760db8afa60de92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "84824d8e23819e6e",
+                "c1aff394231659ad"
+            ]
+        ]
+    },
+    {
+        "id": "31877a3374a3d140",
+        "type": "mqtt in",
+        "z": "b88c9a5723b598e7",
+        "name": "Umidade",
+        "topic": "mel_umid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "760db8afa60de92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 580,
+        "wires": [
+            [
+                "ebe909c399eb958b",
+                "b3d005cf7abb61b1"
+            ]
+        ]
+    },
+    {
+        "id": "84824d8e23819e6e",
+        "type": "debug",
+        "z": "b88c9a5723b598e7",
+        "name": "Saida_Temperatura",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ebe909c399eb958b",
+        "type": "debug",
+        "z": "b88c9a5723b598e7",
+        "name": "Saida_Umidade",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f27a0b8502058738",
+        "type": "mysql",
+        "z": "b88c9a5723b598e7",
+        "mydb": "073f4de5059f9715",
+        "name": "Aiven_MySQL",
+        "x": 220,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b3d005cf7abb61b1",
+        "type": "ui-gauge",
+        "z": "b88c9a5723b598e7",
+        "name": "Umidade",
+        "group": "98aa8eede92f868e",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Umidade",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 360,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1aff394231659ad",
+        "type": "ui-gauge",
+        "z": "b88c9a5723b598e7",
+        "name": "Temperatura",
+        "group": "98aa8eede92f868e",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 310,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "760db8afa60de92f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "073f4de5059f9715",
+        "type": "MySQLdatabase",
+        "name": "Aiven",
+        "host": "mysql-3daba4e-echa.f.aivencloud.com",
+        "port": "28914",
+        "db": "defaultdb",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "98aa8eede92f868e",
+        "type": "ui-group",
+        "name": "DHT11",
+        "page": "2566b51e285cbfb4",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "2566b51e285cbfb4",
+        "type": "ui-page",
+        "name": "Entradas",
+        "ui": "39229bcdc76201a6",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "d4a027e1198aed8f",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "39229bcdc76201a6",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "d4a027e1198aed8f",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
