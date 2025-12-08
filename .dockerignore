@@ -1,0 +1,13 @@
+# Ignore the PlatformIO build environment and dependencies
+.pio
+.vscode
+include
+lib
+src
+test
+
+# Ignore standard Node.js/OS files if any
+node_modules
+npm-debug.log
+.git
+.gitignore
