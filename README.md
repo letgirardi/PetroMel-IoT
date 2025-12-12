@@ -52,10 +52,9 @@ O sistema utiliza os seguintes tópicos para comunicação:
 | Origem | Variável | Tópico MQTT | Broker Configurado |
 | :--- | :--- | :--- | :--- |
 | **ESP32** | Luminosidade (LDR) | `mel/LDR/Luminosidade` | `broker.hivemq.com` |
-| **Python** | Temperatura | `mel_temp` | `*.ngrok-free.dev` (Ver nota) |
-| **Python** | Umidade | `mel_umid` | `*.ngrok-free.dev` (Ver nota) |
+| **Python** | Temperatura | `mel_temp` | `broker.hivemq.com` |
+| **Python** | Umidade | `mel_umid` | `broker.hivemq.com` |
 
-> **Nota:** O código atual aponta para brokers diferentes (`hivemq` público no ESP32 e um túnel `ngrok` no Python). Certifique-se de unificar os endereços ou configurar o Node-RED para ouvir ambas as fontes (Bridge).
 
 ## 🚀 Como Executar
 
