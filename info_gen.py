@@ -5,7 +5,7 @@ import random
 import socket
 import paho.mqtt.client as mqtt
 
-MQTT_BROKER = "broker.hivemq.com"
+MQTT_BROKER = "canonistical-disruptively-nicolasa.ngrok-free.dev"
 MQTT_PORT = 1883
 TOPIC_TEMP = "mel_temp"
 TOPIC_UMID = "mel_umid"
